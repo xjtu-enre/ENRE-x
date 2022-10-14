@@ -1,0 +1,38 @@
+name: Basic js cpp interop by nodegyp
+required-configs:
+    -   file: binding.gyp
+js-relation:
+    items:
+        -   from: file:'index.js'
+            type: define
+            to: variable:'cpp'
+            loc: index.js:1:7
+        -   from: variable:'cpp'
+            type: define
+            to: method:'hello'
+            loc: index.js:2:17
+        -   from: file:'index.js'
+            type: call
+            to: method:'hello'
+            loc: index.js:2:17
+cpp-relation:
+    items:
+        -   from: file:'main.cpp'
+            type: define
+            to: function:'HelloWorld'
+            loc: main.cpp:6:6
+        -   from: file:'main.cpp'
+            type: define
+            to: function:'Init'
+            loc: main.cpp:13:6
+        -   from: function:'Init'
+            type: use
+            to: function:'HelloWorld'
+            loc: main.cpp:14:39
+        -   ...
+inter-relation:
+    items:
+        -   from: file:'index.js'
+            type: call
+            to: function:'HelloWorld'[@lang=cpp]
+            trace: 0
