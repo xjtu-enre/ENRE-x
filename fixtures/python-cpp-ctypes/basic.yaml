@@ -1,0 +1,43 @@
+name: basic python cpp interop by ctypes
+python-relation:
+    items:
+        -   from: module:'hello.py'
+            type: import
+            to: package:'ctypes'
+            loc: hello.py:1:8
+        -   from: module:'hello.py'
+            type: define
+            to: variable:'dll'
+            loc: hello.py:3:1
+        -   from: variable:'dll'
+            type: use
+            to: package:'ctypes'
+            loc: hello.py:3:7
+        -   from: module:'hello.py'
+            type: define
+            to: variable:'cin'
+            loc: hello.py:4:1
+        -   from: variable:'cin'
+            type: use
+            to: package:'ctypes'
+            loc: hello.py:4:7
+        -   from: variable:'dll'
+            type: define
+            to: function:'hello'
+            loc: hello.py:5:5
+        -   from: module:'hello.py'
+            type: call
+            to: function:'hello'
+            loc: hello.py:5:5
+cpp-relation:
+    items:
+        -   from: file:'hellopy.cpp'
+            type: define
+            to: function:'hello'
+            loc: hellopy.cpp:6:6
+inter-relation:
+    items:
+        -   from: module:'hello.py'
+            type: call
+            to: function:'hello'[@lang=cpp]
+            trace: 0
