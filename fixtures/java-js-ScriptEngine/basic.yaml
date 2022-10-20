@@ -1,1 +1,35 @@
-
+name: Basic java js interop by ScriptEngine
+java-relation:
+    items:
+        -   from: file:'ExecuteJS.java'
+            type: define
+            to: variable:'se'
+            loc: ExecuteJS.java:10:22
+        -   from: file:'ExecuteJS.java'
+            type: modify
+            to: variable:'se'
+            loc: ExecuteJS.java:11:12
+        -   from: file:'ExecuteJS.java'
+            type: define
+            to: file:'hello.js'
+            loc: ExecuteJS.java:11:21
+        -   from: file:'ExecuteJS.java'
+            type: cast
+            to: variable:'se'
+            loc: ExecuteJS.java:12:36
+        -   from: file:'ExecuteJS.java'
+            type: call
+            to: file:'hello.js'
+            loc: ExecuteJS.java:13:12
+js-relation:
+    items:
+        -   from: file:'hello.js'
+            type: define
+            to: function:'hello'
+            loc: hello.js:1:10
+inter-relation:
+    items:
+        -   from: file:'ExecuteJS.java'
+            type: call
+            to: function:'hello'[@lang=js]
+            trace: 0
