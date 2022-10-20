@@ -29,7 +29,10 @@ cpp-relation:
             type: use
             to: function:'HelloWorld'
             loc: main.cpp:14:39
-        -   ...
+        -   from: file:'main.cpp'
+            type: define
+            to: Macro:'NODE_MODULE'
+            loc: main.cpp:17:0
 inter-relation:
     items:
         -   from: file:'index.js'
