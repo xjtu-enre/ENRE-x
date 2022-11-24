@@ -1,0 +1,49 @@
+name: Basic javascript cpp interop by NAPI
+required-configs:
+    -   file: binding.gyp
+js-relation:
+    items:
+        -   from: file:'napi_example01.js'
+            type: define
+            to: variable:'cpp'
+            loc: napi_example01:1:7
+        -   from: variable:'cpp'
+            type: define
+            to: method:'hello'
+            loc: napi_example01.js:2:13
+        -   from: file:'napi_example01.js'
+            type: call
+            to: method:'hello'
+            loc: napi_example01.js:2:13
+cpp-relation:
+    items:
+        -   from: file:'napi_example01.cpp'
+            type: define
+            to: function:'NAPI_CALL'
+            loc: napi_example01.cpp:4:9
+        -   from: file:'napi_example01.cpp'
+            type: define
+            to: function:'hello'
+            loc: napi_example01.cpp:20:12
+        -   from: file:'napi_example01.cpp'
+            type: define
+            to: function:'set_function'
+            loc: napi_example01.cpp:27:6
+        -   from: file:'napi_example01.cpp'
+            type: define
+            to: function:'init'
+            loc: napi_example01.cpp:33:12
+        -   from: function:'Init'
+            type: use
+            to: function:'hello'
+            loc: napi_example01.cpp:34:40
+        -   from: file:'napi_example01.cpp'
+            type: define
+            to: Macro:'NODE_MODULE'
+            loc: napi_example01.cpp:38:0
+inter-relation:
+    items:
+        -   from: file:'napi_example01.js'
+            type: call
+            to: function:'hello'[@lang=cpp]
+            trace: 0

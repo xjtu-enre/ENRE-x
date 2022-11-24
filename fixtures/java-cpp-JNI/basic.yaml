@@ -1,0 +1,24 @@
+name: basic java cpp interop by JNI
+java-relation:
+  items:
+    - from: file:'JNIDemo.java'
+      type: define
+      to: method:'testHello'
+      loc: JNIDemo.java:7:31
+    - from: file:'JNIDemo.java'
+      type: call
+      to: method:'testHello'
+      loc: JNIDemo.java:14:9
+cpp-relation:
+  items:
+    - from: file:'TestJNI.cpp'
+      type: define
+      to: function:'Java_JNIDemo_testHello'
+      loc: TestJNI.cpp:4:24
+inter-relation:
+  items:
+    - from: file:'JNIDemo.java'
+      type: call
+      to: function:'Java_JNIDemo_testHello'[@lang=cpp]
+      trace: 0
+
