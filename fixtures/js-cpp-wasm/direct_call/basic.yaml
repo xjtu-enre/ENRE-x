@@ -1,0 +1,53 @@
+name: Basic js cpp interop by wasm
+required-configs:
+    -   file: example_1.js
+js-relation:
+    items:
+        -   from: file:'test_1.js'
+            type: define
+            to: variable:'addModule'
+            loc: test_1.js:2:5
+        -   from: variable:'addModule'
+            type: define
+            to: method:'add'
+            loc: test_1.js:4:31
+        -   from: variable:'addModule'
+            type: define
+            to: method:'hello'
+            loc: test_1.js:5:31
+        -   from: variable:'addModule'
+            type: define
+            to: method:'sayhi'
+            loc: test_1.js:6:31
+        -   from: file:'test_1.js'
+            type: call
+            to: method:'add'
+            loc: test_1.js:4:31
+            base: 0
+        -   from: file:'test_1.js'
+            type: call
+            to: method:'hello'
+            loc: test_1.js:5:31
+            base: 1
+        -   from: file:'test_1.js'
+            type: call
+            to: method:'sayhi'
+            loc: test_1.js:6:31
+            base: 2
+cpp-relation:
+    items:
+        -   from: file:'example_1.c'
+            type: use
+            to: function:'add'
+            loc: example_1.c:5:5
+            target: 0
+        -   from: file:'example_1.c'
+            type: use
+            to: function:'hello'
+            loc: example_1.c:11:6
+            target: 1
+            -   from: file:'example_1.c'
+            type: use
+            to: function:'sayhi'
+            loc: example_1.c:17:6
+            target: 2
