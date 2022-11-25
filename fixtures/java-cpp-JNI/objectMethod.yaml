@@ -1,0 +1,49 @@
+name: cpp recall java method
+java-relation:
+  items:
+    - from: file:'objectMethod/PersonMethod.java'
+      type: define
+      to: class:'PersonMethod'
+      loc: file:'objectMethod/PersonMethod.java':6:14
+    - from: class:'PersonMethod'
+      type: define
+      to: method:'native_init'
+      loc: file:'objectMethod/PersonMethod.java':12:17
+      base: true
+    - from: class:'PersonMethod'
+      type: define
+      to: method:'PersonField'
+      loc: file:'objectMethod/PersonMethod.java':16:12
+    - from: method:'PersonField'
+      type: call
+      to: method:'native_init'
+      loc: file:'objectMethod/PersonMethod.java'17:9
+    - from: class:'PersonMethod'
+      type: define
+      to: method:'setName'
+      loc: file:'objectMethod/PersonMethod.java':20:17
+      target: true
+cpp-relation:
+  items:
+    - from: file:'objectMethod/PersonMethod.cpp'
+      type: define
+      to: function:'Java_PersonMethod_native_1init'
+      loc: file:'objectMethod/PersonMethod.cpp':4:24
+      target: true
+    - from: function:'Java_PersonMethod_native_1init'
+      type: define
+      to: variable:'clazz_person'
+      loc: file:'objectMethod/PersonMethod.cpp':6:12
+    - from: function:'Java_PersonMethod_native_1init'
+      type: define
+      to: variable:'methodID_setName'
+      loc: file:'objectMethod/PersonMethod.cpp':7:15
+    - from: function:'Java_PersonMethod_native_1init'
+      type: define
+      to: variable:'name'
+      loc: file:'objectMethod/PersonMethod.cpp':8:13
+    - from: function:'Java_PersonMethod_native_1init'
+      type: call
+      to: method:'CallVoidMethod'
+      loc: file:'objectMethod/PersonMethod.cpp':9:10
+      base: true
