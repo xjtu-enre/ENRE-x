@@ -1,0 +1,24 @@
+name: java call cpp basic by basic method
+java-relation:
+  items:
+    - from: file:'Method/Method.java'
+      type: define
+      to: class:'Method'
+      loc: file:'Method/Method.java':5:14
+    - from: class:'Method'
+      type: define
+      to: method:'testHello'
+      loc: file:'Method/Method.java':7:31
+      base: true
+    - from: class:'Method'
+      type: call
+      to: method:'testHello'
+      loc: file:'Method/Method.java':14:9
+cpp-relation:
+  items:
+    - from: file:'Method/Method.cpp'
+      type: define
+      to: function:'Java_Method_testHello'
+      loc: file:'Method/Method.cpp':5:24
+      target: true
+
