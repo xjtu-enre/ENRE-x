@@ -1,0 +1,39 @@
+name: java call cpp to modify basic field
+java-relation:
+  items:
+    - from: file:'objectField/PersonField.java'
+      type: define
+      to: class:'PersonField'
+      loc: file:'objectField/PersonField.java':6:14
+    - from: class:'PersonField'
+      type: define
+      to: method:'native_init'
+      loc: file:'objectField/PersonField.java':12:17
+      base: true
+    - from: class:'PersonField'
+      type: define
+      to: method:'PersonField'
+      loc: file:'objectField/PersonField.java':16:12
+    - from: method:'PersonField'
+      type: call
+      to: method:'native_init'
+      loc: file:'objectField/PersonField.java':17:9
+cpp-relation:
+  items:
+    - from: file:'PersonField.cpp'
+      type: define
+      to: function:'Java_PersonField_native_1init'
+      loc: file:'objectField/PersonField.cpp':4:24
+      target: true
+    - from: function:'Java_PersonField_native_1init'
+      type: define
+      to: variable:'clazz_person'
+      loc: file:'objectField/PersonField.cpp':6:12
+    - from: function:'Java_PersonField_native_1init'
+      type: define
+      to: variable:'fieldID_mAge'
+      loc: file:'objectField/PersonField.cpp':7:14
+    - from: function:'Java_PersonField_native_1init'
+      type: define
+      to: variable:'age'
+      loc: file:'objectField/PersonField.cpp':8:10
