@@ -1,0 +1,23 @@
+name: basic python cpp interop by ctypes with getting parm
+python-relation:
+    items:
+        -   from: module:'get.py'
+            type: define
+            to: class:'algStruct'
+            loc: get.py:5:7
+        -   from: module:'get.py'
+            type: call
+            to: function:'algStructest'
+            loc: post.py:18:12
+            base: true
+cpp-relation:
+    items:
+        -   from: file:'get.cpp'
+            type: define
+            to: struct:'alg'
+            loc: get.cpp:10:12
+        -   from: file:'get.cpp'
+            type: define
+            to: function:'algStructest'
+            loc: get.cpp:17:36
+            target: true
