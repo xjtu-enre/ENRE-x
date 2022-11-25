@@ -1,0 +1,15 @@
+name: basic python cpp interop by ctypes with posting parm
+python-relation:
+    items:
+        -   from: module:'post.py'
+            type: call
+            to: function:'post'
+            loc: post.py:6:9
+            base: true
+cpp-relation:
+    items:
+        -   from: file:'post.cpp'
+            type: define
+            to: function:'post'
+            loc: post.cpp:8:6
+            target: true
