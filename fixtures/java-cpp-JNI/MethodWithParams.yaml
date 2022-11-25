@@ -1,0 +1,24 @@
+name: java call cpp basic by method with params
+java-relation:
+  items:
+    - from: file:'MethodWithParams/MethodWithParams.java'
+      type: define
+      to: class:'MethodWithParams'
+      loc: file:'MethodWithParams/MethodWithParams.java':6:14
+    - from: class:'MethodWithParams'
+      type: define
+      to: method:'f1'
+      loc: file:'MethodWithParams/MethodWithParams.java':7:30
+      base: true
+    - from: class:'MethodWithParams'
+      type: call
+      to: method:'f1'
+      loc: file:'MethodWithParams/MethodWithParams.java':14:28
+cpp-relation:
+  items:
+    - from: file:'MethodWithParams/MethodWithParams.cpp'
+      type: define
+      to: function:'Java_MethodWithParams_f1'
+      loc: file:'MethodWithParams/MethodWithParams.cpp':5:24
+      target: true
+
