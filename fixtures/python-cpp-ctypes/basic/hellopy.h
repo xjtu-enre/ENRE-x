@@ -2,4 +2,4 @@
 
 extern "C"  
 _declspec(dllexport) 
-void hello(char* str);
+void hello();
