@@ -3,7 +3,6 @@
 #include<stdio.h>
 using namespace std;
 
-void hello(char *str) {
-	printf("Hello python!\nYour input is %s", str);
-
+void hello() {
+	printf("Hello python!\n");
 }
