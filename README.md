@@ -1,4 +1,4 @@
-# pyctype_tree-sitter
+# ENRE-x
 It's tree-sitter implementation of [pyctype](https://github.com/S4Plus/pyctype). 
 
 ✔ PyCType_tree-sitter is no longer need to config C head files that used in the project.  
