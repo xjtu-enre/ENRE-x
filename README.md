@@ -9,6 +9,8 @@ What is returned is a variable, and only the types of all assignment statements 
 # uage
 run `PyCType_tree-sitter` with:
 ```python
+# 1. enter /enrex
+# 2. run evaluation
 python evaluate.py path-to-project
 ```
 `path-to-project` is the path of the project (or a file) to be analyzed and should be replaced with absolute path.
