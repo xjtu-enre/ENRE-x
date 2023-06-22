@@ -1,1 +1,8 @@
-pm
+venv/
+out/
+**/__pycache__
+.idea/
+testdata/
+venv10/
+**/*.json
+build/
