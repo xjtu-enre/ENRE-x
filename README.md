@@ -6,7 +6,7 @@ It's tree-sitter implementation of [pyctype](https://github.com/S4Plus/pyctype).
 What is returned is a variable, and only the types of all assignment statements (Assign) for this variable will be extracted. According to the correct analysis logic, the assignment statement before and closest to the return statement should be analyzed. This study improved the analysis process and made the analysis results more accurate.  
 ✔ PyCType_tree-sitter drastically reduces runtime.
 
-# uage
+# usage
 run `PyCType_tree-sitter` with:
 ```python
 # 1. enter /enrex
